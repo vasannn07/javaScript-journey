@@ -165,3 +165,93 @@ switch(day){
     default:
         console.log("This not Days");
 }
+
+// Print the month name for a number (1–12).
+
+let Month = 11;
+
+switch(Month){
+    case 1:
+        console.log("January");
+        break;
+    case 2:
+        console.log("February");
+        break;
+    case 3:
+        console.log("March");
+        break;
+    case 4:
+        console.log("April");
+        break;
+    case 5:
+        console.log("May");
+        break;
+    case 6:
+        console.log("June");
+        break;
+    case 7:
+        console.log("July");
+        break;
+    case 8:
+        console.log("August");
+        break;
+    case 9:
+        console.log("September");
+        break;
+    case 10:
+        console.log("October");
+        break;
+    case 11:
+        console.log("November");
+        break;
+    case 12:
+        console.log("December");
+        break;
+    default:
+        console.log("you didn't enter the Month");   
+}
+
+// Simple calculator using +, -, *, /
+
+let a = 3;
+let b = 4;
+let operator = '*';
+let result;
+
+switch(operator){
+    case '+':
+        result = a+b;
+        break;
+    case '-':
+        result = a-b;
+        break;
+    case '*':
+        result = a*b;
+        break;
+    case '/':
+        result = a/b;
+        break;
+    default:
+        result = "you did not enter the operator";                
+}
+console.log(result);
+
+// Print a message based on traffic light color (red, yellow, green)
+
+let light = 'green';
+let res;
+
+switch(light){
+    case 'red':
+        res = "Stop";
+        break;
+    case 'yellow':
+        res = "Ready";
+        break;
+    case 'green':
+        res = "Let's go";
+        break;
+    default:
+        res = "You didn't enter anything";            
+}
+console.log(res);

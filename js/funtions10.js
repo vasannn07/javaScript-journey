@@ -45,6 +45,8 @@ console.log(toProperCase("vaSAn")); */
 
 
    // Another Way to declare func
+   // (=>) this symbol means the function
+   
    const toProperCase = (name) =>{
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 }

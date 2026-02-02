@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Portfolio | Final Year Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= THEME ================= */
+:root {
+  --bg-main: linear-gradient(135deg, #f8fafc, #eef2ff);
+  --card-bg: rgba(255,255,255,0.85);
+  --primary: #2563eb;
+  --secondary: #14b8a6;
+  --text-dark: #0f172a;
+  --text-light: #475569;
+  --max-width: 1100px;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+nav h1 {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ================= SECTIONS ================= */
+section {
+  min-height: 100vh;
+  padding: 120px 6% 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+/* ================= HERO ================= */
+.hero {
+  text-align: left;
+}
+
+.hero h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.2;
+}
+
+.hero span {
+  color: var(--primary);
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  max-width: 520px;
+  color: var(--text-light);
+}
+
+.btn {
+  margin-top: 30px;
+  padding: 14px 36px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= CARD ================= */
+.card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* ================= SKILLS ================= */
+.skill {
+  margin-bottom: 20px;
+}
+
+.bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.bar span {
+  height: 100%;
+  display: block;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 1.2s ease;
+}
+
+/* ================= PROJECTS ================= */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.project {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  transition: transform 0.4s;
+}
+
+.project:hover {
+  transform: translateY(-10px);
+}
+
+/* ================= CONTACT ================= */
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 15px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-light);
+}
+
+/* ================= ANIMATION ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 6%;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 14px;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  section {
+    padding-top: 100px;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>MyPortfolio</h1>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="container">
+    <h2>Hello, I'm <span>Your Name</span></h2>
+    <p>Final year student passionate about software development and modern web technologies.</p>
+    <button class="btn">Download Resume</button>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <div class="container card">
+    <h2>About Me</h2>
+    <p>
+      This professional portfolio is developed as part of my final year project using modern
+      HTML, CSS and JavaScript principles focusing on UI, performance and accessibility.
+    </p>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="container card">
+    <h2>Skills</h2>
+    <div class="skill">HTML<div class="bar"><span data="95%"></span></div></div>
+    <div class="skill">CSS<div class="bar"><span data="90%"></span></div></div>
+    <div class="skill">JavaScript<div class="bar"><span data="85%"></span></div></div>
+    <div class="skill">Problem Solving<div class="bar"><span data="88%"></span></div></div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <div class="container">
+    <h2 style="margin-bottom:30px;">Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Final Year Project</h3>
+        <p>Academic project solving a real-world problem using modern technologies.</p>
+      </div>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>Responsive personal portfolio built with HTML, CSS and JavaScript.</p>
+      </div>
+      <div class="project">
+        <h3>Mini Project</h3>
+        <p>Problem-solving based project with optimized UI and logic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="container card">
+    <h2>Contact Me</h2>
+    <form onsubmit="return false">
+      <input placeholder="Your Name">
+      <input placeholder="Email">
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Your Name | Final Year Project
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+
+  document.querySelectorAll(".bar span").forEach(bar => {
+    bar.style.width = bar.getAttribute("data");
+  });
+});
+</script>
+
+</body>
+</html>
